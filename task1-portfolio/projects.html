@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projets de Nada Missaoui - Full Stack, IA et DevOps" />
+  <title>Projets | Nada Missaoui</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">Nada<span>.</span></a>
+      <button class="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="projects.html" class="active">Projets</a></li>
+          <li><a href="contact.html" class="nav-cta">Me contacter</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Portfolio</p>
+          <h2 class="section-title">Mes projets</h2>
+          <p class="section-subtitle">
+            Réalisations professionnelles, projets académiques, intelligence
+            artificielle et programme de stage Auspify Technologies.
+          </p>
+        </div>
+
+        <div class="filters reveal">
+          <button class="filter-btn active" data-filter="all">Tous</button>
+          <button class="filter-btn" data-filter="pro">Professionnel</button>
+          <button class="filter-btn" data-filter="academic">Académique</button>
+          <button class="filter-btn" data-filter="ai">Intelligence Artificielle</button>
+          <button class="filter-btn" data-filter="internship">Stage Auspify</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <article class="project-card reveal" data-category="pro ai">
+            <div class="project-thumb">&#128241;<span class="project-status status-done">Terminé</span></div>
+            <div class="project-body">
+              <h3>Plateforme d'Orchestration de Portabilité</h3>
+              <p>
+                Portail web de suivi des demandes de portabilité téléphonique IN
+                et OUT pour Orange Tunisie, avec dashboard de monitoring,
+                processus BPMN et services métier SOAP / REST.
+              </p>
+              <div class="tags">
+                <span>React</span><span>Spring Boot</span><span>jBPM</span>
+                <span>KIE Server</span><span>MySQL</span><span>Docker</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="pro ai">
+            <div class="project-thumb">&#129302;<span class="project-status status-done">Terminé</span></div>
+            <div class="project-body">
+              <h3>Module IA &mdash; Classification d'Erreurs</h3>
+              <p>
+                Modèle de classification automatique des erreurs (TF-IDF,
+                LinearSVC) exposé via FastAPI, avec génération de solutions en
+                langage naturel et chatbot multi-niveaux (NVIDIA NIM, Ollama).
+              </p>
+              <div class="tags">
+                <span>Python</span><span>scikit-learn</span><span>FastAPI</span>
+                <span>NLP</span><span>LLM</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="pro">
+            <div class="project-thumb">&#128200;<span class="project-status status-done">Terminé</span></div>
+            <div class="project-body">
+              <h3>Plateforme CRM</h3>
+              <p>
+                Développement et amélioration d'une plateforme CRM dédiée à la
+                gestion des relations clients et des activités commerciales.
+              </p>
+              <div class="tags">
+                <span>React</span><span>TypeScript</span><span>Tailwind CSS</span>
+                <span>Node.js</span><span>Express</span><span>Vite</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="pro">
+            <div class="project-thumb">&#128203;<span class="project-status status-done">Terminé</span></div>
+            <div class="project-body">
+              <h3>Application de Gestion de Projet</h3>
+              <p>
+                Application Full Stack de gestion de projet avec backend Spring
+                Boot, interface Angular et déploiement Docker.
+              </p>
+              <div class="tags">
+                <span>Spring Boot</span><span>Angular</span><span>Docker</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="academic">
+            <div class="project-thumb">&#127891;<span class="project-status status-done">Terminé</span></div>
+            <div class="project-body">
+              <h3>Gestion de Conférences</h3>
+              <p>
+                Application web pour la gestion de conférences : sessions,
+                inscriptions, réservations et paiements.
+              </p>
+              <div class="tags">
+                <span>Spring Boot</span><span>Angular</span><span>MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="academic">
+            <div class="project-thumb">&#128722;<span class="project-status status-done">Terminé</span></div>
+            <div class="project-body">
+              <h3>Site E-Commerce</h3>
+              <p>
+                Plateforme e-commerce avec gestion des produits, commandes et
+                authentification sécurisée.
+              </p>
+              <div class="tags">
+                <span>Symfony</span><span>PHP</span><span>MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="academic">
+            <div class="project-thumb">&#128187;<span class="project-status status-done">Terminé</span></div>
+            <div class="project-body">
+              <h3>Projet C sous Linux</h3>
+              <p>
+                Programme en langage C appliqué aux concepts de programmation
+                système et d'algorithmique sous Linux.
+              </p>
+              <div class="tags">
+                <span>C</span><span>Linux</span><span>VirtualBox</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="internship">
+            <div class="project-thumb">&#127968;<span class="project-status status-done">Terminé</span></div>
+            <div class="project-body">
+              <h3>Task 1 &mdash; Portfolio Personnel</h3>
+              <p>
+                Site portfolio responsive avec pages Accueil, À propos, Projets
+                et Contact, formulaire validé et design moderne.
+              </p>
+              <div class="tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="index.html">Voir le site &rarr;</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="internship">
+            <div class="project-thumb">&#127891;<span class="project-status status-progress">En cours</span></div>
+            <div class="project-body">
+              <h3>Task 2 &mdash; Student Management System</h3>
+              <p>
+                Application full stack de gestion des étudiants : ajout,
+                modification, suppression et consultation des dossiers.
+              </p>
+              <div class="tags">
+                <span>Node.js</span><span>Express</span><span>MongoDB</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="internship">
+            <div class="project-thumb">&#128176;<span class="project-status status-planned">Planifié</span></div>
+            <div class="project-body">
+              <h3>Task 3 &mdash; Expense Tracker</h3>
+              <p>
+                Suivi des revenus et dépenses, résumés financiers et
+                authentification utilisateur.
+              </p>
+              <div class="tags">
+                <span>React</span><span>Express</span><span>JWT</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="internship">
+            <div class="project-thumb">&#128722;<span class="project-status status-planned">Planifié</span></div>
+            <div class="project-body">
+              <h3>Task 4 &mdash; E-Commerce Website</h3>
+              <p>
+                Catalogue produits, panier, comptes utilisateurs et gestion des
+                commandes de bout en bout.
+              </p>
+              <div class="tags">
+                <span>React</span><span>Node.js</span><span>MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="internship">
+            <div class="project-thumb">&#128188;<span class="project-status status-planned">Planifié</span></div>
+            <div class="project-body">
+              <h3>Task 5 &mdash; Job Portal</h3>
+              <p>
+                Plateforme reliant candidats et employeurs : offres, candidatures,
+                recherche, filtres et tableau de bord admin.
+              </p>
+              <div class="tags">
+                <span>React</span><span>Node.js</span><span>MongoDB</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="internship">
+            <div class="project-thumb">&#128218;<span class="project-status status-planned">Planifié</span></div>
+            <div class="project-body">
+              <h3>Task 6 &mdash; Learning Management System</h3>
+              <p>
+                Gestion de cours, dashboard étudiant, quiz, devoirs et suivi de
+                progression avec authentification par rôle.
+              </p>
+              <div class="tags">
+                <span>React</span><span>Express</span><span>MongoDB</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Nada Missaoui. Tous droits réservés.</p>
+      <p>Conçu et développé avec HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
