@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="E-Commerce Website - Auspify Technologies Task 4" />
+  <title>TechStore | Auspify Task 4</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="#" class="brand" data-nav="shop">
+        <span class="icon">&#128722;</span>
+        <span class="name">TechStore</span>
+      </a>
+
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Rechercher un produit..." />
+      </div>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="cartBtn">
+          &#128722; <span class="label">Panier</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <div class="user-menu">
+          <button class="icon-btn user-menu-btn" id="userMenuBtn">
+            <span class="user-avatar" id="userAvatar">&#128100;</span>
+            <span class="label" id="userLabel">Connexion</span>
+          </button>
+          <div class="dropdown" id="userDropdown"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Shop screen -->
+    <section class="screen active" id="shopScreen">
+      <div class="store-hero">
+        <h1>Bienvenue sur TechStore</h1>
+        <p>Découvrez notre catalogue de produits tech : informatique, audio, téléphonie et accessoires. Livraison rapide et paiement sécurisé.</p>
+      </div>
+
+      <div class="shop-layout">
+        <aside class="filters-panel">
+          <h3>Filtres</h3>
+
+          <div class="filter-block">
+            <label>Catégories</label>
+            <div id="categoryList"></div>
+          </div>
+
+          <div class="filter-block">
+            <label>Prix (TND)</label>
+            <div class="price-row">
+              <input type="number" id="minPrice" placeholder="Min" min="0" />
+              <input type="number" id="maxPrice" placeholder="Max" min="0" />
+            </div>
+          </div>
+
+          <button class="btn btn-ghost btn-block btn-sm" id="resetFilters">Réinitialiser</button>
+        </aside>
+
+        <div>
+          <div class="products-header">
+            <span class="count" id="productsCount">0 produits</span>
+            <select id="sortSelect">
+              <option value="recent">Plus récents</option>
+              <option value="priceAsc">Prix croissant</option>
+              <option value="priceDesc">Prix décroissant</option>
+              <option value="rating">Meilleures notes</option>
+              <option value="name">Nom (A-Z)</option>
+            </select>
+          </div>
+          <div class="products-grid" id="productsGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Orders screen -->
+    <section class="screen" id="ordersScreen">
+      <h1 class="page-title">Mes commandes</h1>
+      <div id="ordersList"></div>
+    </section>
+
+    <!-- Admin screen -->
+    <section class="screen" id="adminScreen">
+      <h1 class="page-title">Tableau de bord Admin</h1>
+
+      <div class="stats-row">
+        <div class="stat-card"><div class="label">Revenus</div><div class="value" id="admRevenue">0</div></div>
+        <div class="stat-card"><div class="label">Commandes</div><div class="value" id="admOrders">0</div></div>
+        <div class="stat-card"><div class="label">Produits</div><div class="value" id="admProducts">0</div></div>
+        <div class="stat-card"><div class="label">Utilisateurs</div><div class="value" id="admUsers">0</div></div>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-admin="orders">Commandes</button>
+        <button class="admin-tab" data-admin="products">Produits</button>
+      </div>
+
+      <div id="adminOrdersPanel">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Articles</th>
+                <th>Total</th>
+                <th>Statut</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="adminOrdersTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="adminProductsPanel" style="display: none">
+        <div class="products-header" style="margin-bottom: 1rem">
+          <span class="count" id="adminProductsCount"></span>
+          <button class="btn btn-primary btn-sm" id="addProductBtn">&#43; Nouveau produit</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Produit</th>
+                <th>Catégorie</th>
+                <th>Prix</th>
+                <th>Stock</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminProductsTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h2>Mon panier</h2>
+      <button class="drawer-close" id="closeDrawer">&times;</button>
+    </div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-footer">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cartTotal">0,00 TND</strong>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Commander</button>
+    </div>
+  </aside>
+
+  <!-- Auth modal -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="authTitle">Connexion</h2>
+        <button class="modal-close" id="closeAuthModal">&times;</button>
+      </div>
+      <div class="auth-tabs" style="display: flex; gap: 0.5rem; margin-bottom: 1.2rem">
+        <button class="admin-tab active" data-auth="login" id="tabLogin">Connexion</button>
+        <button class="admin-tab" data-auth="register" id="tabRegister">Inscription</button>
+      </div>
+      <form id="loginForm">
+        <div class="form-group full" style="margin-bottom: 1rem">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="vous@exemple.com" />
+        </div>
+        <div class="form-group full" style="margin-bottom: 1rem">
+          <label for="loginPassword">Mot de passe</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+        <p style="color: var(--muted); font-size: 0.78rem; margin-top: 0.8rem; text-align: center">
+          Admin démo : admin@auspify.com / admin123
+        </p>
+      </form>
+      <form id="registerForm" style="display: none">
+        <div class="form-group full" style="margin-bottom: 1rem">
+          <label for="registerName">Nom complet</label>
+          <input type="text" id="registerName" placeholder="Nada Missaoui" />
+        </div>
+        <div class="form-group full" style="margin-bottom: 1rem">
+          <label for="registerEmail">Email</label>
+          <input type="email" id="registerEmail" placeholder="vous@exemple.com" />
+        </div>
+        <div class="form-group full" style="margin-bottom: 1rem">
+          <label for="registerPassword">Mot de passe (min. 6 caractères)</label>
+          <input type="password" id="registerPassword" placeholder="••••••••" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Créer un compte</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Checkout modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Finaliser la commande</h2>
+        <button class="modal-close" id="closeCheckoutModal">&times;</button>
+      </div>
+
+      <ul class="order-summary" id="checkoutSummary"></ul>
+
+      <form id="checkoutForm">
+        <div class="form-grid">
+          <div class="form-group full">
+            <label for="shipName">Nom complet</label>
+            <input type="text" id="shipName" placeholder="Nada Missaoui" />
+            <span class="field-error">Requis.</span>
+          </div>
+          <div class="form-group full">
+            <label for="shipAddress">Adresse</label>
+            <input type="text" id="shipAddress" placeholder="12 rue de la Liberté" />
+            <span class="field-error">Requis.</span>
+          </div>
+          <div class="form-group">
+            <label for="shipCity">Ville</label>
+            <input type="text" id="shipCity" placeholder="Ariana" />
+            <span class="field-error">Requis.</span>
+          </div>
+          <div class="form-group">
+            <label for="shipPostal">Code postal</label>
+            <input type="text" id="shipPostal" placeholder="2080" />
+          </div>
+          <div class="form-group full">
+            <label for="shipPhone">Téléphone</label>
+            <input type="text" id="shipPhone" placeholder="+216 00 000 000" />
+            <span class="field-error">Requis.</span>
+          </div>
+          <div class="form-group full">
+            <label for="paymentMethod">Mode de paiement</label>
+            <select id="paymentMethod">
+              <option value="cash">Paiement à la livraison</option>
+              <option value="card">Carte bancaire</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="cancelCheckout">Annuler</button>
+          <button type="submit" class="btn btn-primary">Confirmer la commande</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Product modal (admin) -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="productModalTitle">Nouveau produit</h2>
+        <button class="modal-close" id="closeProductModal">&times;</button>
+      </div>
+      <form id="productForm">
+        <input type="hidden" id="productId" />
+        <div class="form-grid">
+          <div class="form-group full">
+            <label for="prodName">Nom</label>
+            <input type="text" id="prodName" placeholder="Ordinateur portable" />
+            <span class="field-error">Requis.</span>
+          </div>
+          <div class="form-group full">
+            <label for="prodDescription">Description</label>
+            <input type="text" id="prodDescription" placeholder="Brève description" />
+          </div>
+          <div class="form-group">
+            <label for="prodPrice">Prix (TND)</label>
+            <input type="number" id="prodPrice" min="0" step="0.01" placeholder="0.00" />
+            <span class="field-error">Requis.</span>
+          </div>
+          <div class="form-group">
+            <label for="prodStock">Stock</label>
+            <input type="number" id="prodStock" min="0" placeholder="0" />
+          </div>
+          <div class="form-group">
+            <label for="prodCategory">Catégorie</label>
+            <input type="text" id="prodCategory" placeholder="Informatique" />
+            <span class="field-error">Requis.</span>
+          </div>
+          <div class="form-group">
+            <label for="prodRating">Note (0-5)</label>
+            <input type="number" id="prodRating" min="0" max="5" step="0.1" placeholder="4.5" />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="cancelProduct">Annuler</button>
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Student Management System - Auspify Technologies Task 2" />
+  <title>Gestion des Étudiants | Auspify Task 2</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-icon">&#127891;</span>
+        <div>
+          Gestion des Étudiants
+          <small>Student Management System</small>
+        </div>
+      </div>
+      <div class="header-status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Connexion au serveur...</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="label">Étudiants</div>
+        <div class="value" id="statTotal">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Moyenne générale</div>
+        <div class="value" id="statAverage">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Filières</div>
+        <div class="value" id="statCourses">0</div>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Rechercher par nom ou email..." />
+        </div>
+        <div class="filter-select">
+          <select id="courseFilter">
+            <option value="">Toutes les filières</option>
+          </select>
+        </div>
+        <div class="filter-select">
+          <select id="sortSelect">
+            <option value="createdAt">Plus récents</option>
+            <option value="name">Nom (A-Z)</option>
+            <option value="grade">Meilleures notes</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn btn-primary" id="addBtn">
+        <span>&#43;</span> Ajouter un étudiant
+      </button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Étudiant</th>
+            <th>Filière</th>
+            <th>Année</th>
+            <th>Note</th>
+            <th>Téléphone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="studentsTable"></tbody>
+      </table>
+      <div class="empty-state" id="emptyState" style="display: none">
+        <div class="big">&#128203;</div>
+        <p>Aucun étudiant trouvé.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Add / Edit modal -->
+  <div class="modal-overlay" id="formModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Ajouter un étudiant</h2>
+        <button class="modal-close" id="closeModal" aria-label="Fermer">&times;</button>
+      </div>
+      <form id="studentForm" novalidate>
+        <input type="hidden" id="studentId" />
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="firstName">Prénom <span class="req">*</span></label>
+            <input type="text" id="firstName" placeholder="Nada" />
+            <span class="field-error">Le prénom est requis.</span>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Nom <span class="req">*</span></label>
+            <input type="text" id="lastName" placeholder="Missaoui" />
+            <span class="field-error">Le nom est requis.</span>
+          </div>
+          <div class="form-group full">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" placeholder="etudiant@esprit.tn" />
+            <span class="field-error">Un email valide est requis.</span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="text" id="phone" placeholder="+216 00 000 000" />
+          </div>
+          <div class="form-group">
+            <label for="dateOfBirth">Date de naissance</label>
+            <input type="date" id="dateOfBirth" />
+          </div>
+          <div class="form-group">
+            <label for="gender">Genre</label>
+            <select id="gender">
+              <option value="Other">Autre</option>
+              <option value="Female">Féminin</option>
+              <option value="Male">Masculin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="course">Filière <span class="req">*</span></label>
+            <input type="text" id="course" placeholder="Génie Logiciel" list="courseList" />
+            <datalist id="courseList"></datalist>
+            <span class="field-error">La filière est requise.</span>
+          </div>
+          <div class="form-group">
+            <label for="year">Année d'étude</label>
+            <select id="year">
+              <option value="1">1ère année</option>
+              <option value="2">2ème année</option>
+              <option value="3">3ème année</option>
+              <option value="4">4ème année</option>
+              <option value="5">5ème année</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="grade">Note moyenne (0-100)</label>
+            <input type="number" id="grade" min="0" max="100" step="0.01" placeholder="85" />
+            <span class="field-error">Note invalide (0 à 100).</span>
+          </div>
+          <div class="form-group full">
+            <label for="address">Adresse</label>
+            <input type="text" id="address" placeholder="Ariana, Tunisie" />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="cancelBtn">Annuler</button>
+          <button type="submit" class="btn btn-primary" id="saveBtn">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete confirm modal -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal">
+      <div class="confirm-box">
+        <div class="warn-icon">&#9888;</div>
+        <h2>Confirmer la suppression</h2>
+        <p id="confirmText">Voulez-vous vraiment supprimer cet étudiant ?</p>
+        <div class="modal-actions">
+          <button class="btn btn-ghost" id="cancelDelete">Annuler</button>
+          <button class="btn btn-danger" id="confirmDelete">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
