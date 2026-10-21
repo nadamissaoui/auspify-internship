@@ -34,6 +34,11 @@ serves its own frontend from the `client` folder.
 
 https://nadamissaoui.github.io/portfolio-nada-missaoui/
 
+## Screenshots & demo videos
+
+- Screenshots of every task: [`./screenshots`](./screenshots)
+- Demo videos (WebM) of every task: [`./videos`](./videos)
+
 ## Tech used across tasks
 
 - Frontend: HTML5, CSS3, vanilla JavaScript (Canvas charts, fetch API)
