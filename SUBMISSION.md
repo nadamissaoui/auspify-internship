@@ -1,13 +1,16 @@
 # Dossier de validation — Stage Auspify Technologies
 
 **Stagiaire :** Nada Missaoui
-**Programme :** Full Stack Development Internship
+**Programme :** Full Stack Development Internship (4 semaines) — **4 tâches sur 6 au choix**
 **Période :** 19/10/2026 → 19/11/2026
 **Dépôt de code (public) :** https://github.com/nadamissaoui/auspify-internship
 
 ---
 
 ## 1. Tâches livrées
+
+> Le programme demande de réaliser **4 tâches sur les 6** proposées. Les tâches 1 à 4
+> ci-dessous répondent à cette exigence (les tâches 5 et 6, avancées, ne sont pas requises).
 
 | # | Tâche | Stack | Statut | Code | Captures | Vidéo |
 |---|---|---|---|---|---|---|
@@ -42,7 +45,30 @@ cd task4-ecommerce/server          && npm install && npm start   # http://localh
 | 3 | http://localhost:5001 | créer un compte |
 | 4 | http://localhost:5002 | `admin@auspify.com` / `admin123` |
 
-## 4. Checklist de validation
+## 4. Soumission officielle (brief Auspify)
+
+Le brief impose 4 éléments + un formulaire :
+
+| Élément demandé | Statut |
+|---|---|
+| Code source du projet | ✅ dépôt GitHub |
+| Captures d'écran des tâches terminées | ✅ 13 captures |
+| Lien du dépôt GitHub | ✅ https://github.com/nadamissaoui/auspify-internship |
+| Vidéo de démonstration (optionnelle) | ✅ 5 vidéos |
+| **Formulaire / portail de soumission** (communiqué séparément par Auspify) | ⬜ à remplir |
+
+> Le brief précise : *« A submission form or portal will be shared separately for final
+> evaluation and project verification. »* → si tu ne l'as pas reçu, écris à
+> **support@auspify.com** (ou via www.auspify.com) pour le demander.
+
+**Critères d'évaluation annoncés :** avancement des tâches, qualité du code,
+responsive design, design de l'interface, créativité, présentation professionnelle,
+fonctionnalité du projet.
+
+**Éligibilité au certificat :** tâches terminées + soumission correcte + vérification
+de base du projet.
+
+## 5. Checklist de validation
 
 - [x] Les 4 tâches développées et fonctionnelles
 - [x] Code source versionné (Git) et publié sur GitHub (dépôt public)
@@ -50,10 +76,11 @@ cd task4-ecommerce/server          && npm install && npm start   # http://localh
 - [x] Captures d'écran pour chaque tâche
 - [x] Vidéo de démonstration pour chaque tâche
 - [x] Comptes de test / instructions de lancement fournis
+- [ ] Formulaire / portail de soumission Auspify rempli
 - [ ] Fiche d'évaluation du stagiaire remplie et signée par l'encadrant entreprise
 - [ ] Attestation de stage signée et cachetée par Auspify Technologies
 
-## 5. Contact
+## 6. Contact
 
 - Email : nada.missaoui@esprit.tn
 - LinkedIn : https://linkedin.com/in/missaoui-nada-261140365
