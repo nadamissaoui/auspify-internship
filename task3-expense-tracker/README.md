@@ -89,7 +89,9 @@ http://localhost:5001
 
 ## Submission checklist
 
-- [ ] Backend and frontend running locally
-- [ ] Screenshots (login, dashboard, add form, chart)
-- [ ] Source code pushed to GitHub
-- [ ] Optional: demo video
+- [x] Backend and frontend running locally
+- [x] Screenshots (login, dashboard, add form, chart)
+- [x] Source code pushed to GitHub
+- [x] Optional: demo video
+
+**Deliverables:** [screenshots](../screenshots) · [demo video](../videos/task3-expense-tracker.webm)

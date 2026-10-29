@@ -77,7 +77,9 @@ URL : `https://USERNAME.github.io/portfolio/`
 
 ## Checklist de soumission
 
-- [ ] Code source sur GitHub
-- [ ] Captures d'écran desktop et mobile des 4 pages
-- [ ] Lien du site déployé
-- [ ] Vidéo de démonstration (optionnel)
+- [x] Code source sur GitHub
+- [x] Captures d'écran desktop et mobile des 4 pages
+- [x] Lien du site déployé
+- [x] Vidéo de démonstration (optionnel)
+
+**Livrables :** [captures d'écran](../screenshots) · [vidéo de démo](../videos/task1-portfolio.webm) · [site en ligne](https://nadamissaoui.github.io/portfolio-nada-missaoui/)

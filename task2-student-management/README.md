@@ -38,44 +38,40 @@ task2-student-management/
 
 ## Setup
 
-### 1. Database (MongoDB Atlas - free)
-
-1. Create an account at https://www.mongodb.com/cloud/atlas/register
-2. Create a free **M0** cluster
-3. **Database Access**: add a user with a password
-4. **Network Access**: allow access from anywhere (`0.0.0.0/0`)
-5. Click **Connect -> Drivers** and copy the connection string
-
-### 2. Backend
+### Backend
 
 ```bash
 cd server
 npm install
-copy .env.example .env
-```
-
-Edit `.env` and set your connection string:
-
-```
-PORT=5000
-MONGODB_URI=mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/student_management?retryWrites=true&w=majority
-```
-
-Start the server:
-
-```bash
 npm start
 ```
 
+Uses an **in-memory MongoDB** by default (no setup needed, cleared on restart)
+on port 5000, and serves the frontend.
+
 The API runs at `http://localhost:5000/api/students`.
 
-### 3. Frontend
+### Frontend
 
 The Express server also serves the `client` folder, so once the backend is
 running just open:
 
 ```
 http://localhost:5000
+```
+
+### Optional: persistent database (MongoDB Atlas)
+
+1. Create an account at https://www.mongodb.com/cloud/atlas/register
+2. Create a free **M0** cluster
+3. **Database Access**: add a user with a password
+4. **Network Access**: allow access from anywhere (`0.0.0.0/0`)
+5. Click **Connect -> Drivers** and copy the connection string
+6. Copy `.env.example` to `.env` and set `MONGODB_URI`:
+
+```
+PORT=5000
+MONGODB_URI=mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/student_management?retryWrites=true&w=majority
 ```
 
 ## REST API
@@ -107,7 +103,9 @@ http://localhost:5000
 
 ## Submission checklist
 
-- [ ] Backend and frontend running locally
-- [ ] Source code pushed to GitHub
-- [ ] Screenshots (list, add form, edit, delete, stats)
-- [ ] Optional: short demo video
+- [x] Backend and frontend running locally
+- [x] Source code pushed to GitHub
+- [x] Screenshots (list, add form, edit, delete, stats)
+- [x] Optional: short demo video
+
+**Deliverables:** [screenshots](../screenshots) · [demo video](../videos/task2-student-management.webm)

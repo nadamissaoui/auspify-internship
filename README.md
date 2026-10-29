@@ -38,6 +38,7 @@ https://nadamissaoui.github.io/portfolio-nada-missaoui/
 
 - Screenshots of every task: [`./screenshots`](./screenshots)
 - Demo videos (WebM) of every task: [`./videos`](./videos)
+- Submission / validation pack: [`SUBMISSION.md`](./SUBMISSION.md)
 
 ## Tech used across tasks
 

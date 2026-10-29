@@ -93,7 +93,9 @@ Open `http://localhost:5002` (the Express server serves the client folder).
 
 ## Submission checklist
 
-- [ ] Backend and frontend running locally
-- [ ] Screenshots (catalog, cart, checkout, orders, admin)
-- [ ] Source code pushed to GitHub
-- [ ] Optional: demo video
+- [x] Backend and frontend running locally
+- [x] Screenshots (catalog, cart, checkout, orders, admin)
+- [x] Source code pushed to GitHub
+- [x] Optional: demo video
+
+**Deliverables:** [screenshots](../screenshots) · [demo video (client)](../videos/task4-ecommerce-checkout.webm) · [demo video (admin)](../videos/task4-ecommerce-admin.webm)
