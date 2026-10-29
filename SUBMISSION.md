@@ -5,6 +5,11 @@
 **Période :** 19/10/2026 → 19/11/2026
 **Dépôt de code (public) :** https://github.com/nadamissaoui/auspify-internship
 
+> **Liens publics à transmettre :** dépôt GitHub ci-dessus + portfolio en ligne
+> https://nadamissaoui.github.io/portfolio-nada-missaoui/
+> Les URL `localhost` mentionnées plus bas servent uniquement à lancer les projets
+> en local — elles ne sont pas accessibles depuis Internet.
+
 ---
 
 ## 1. Tâches livrées
